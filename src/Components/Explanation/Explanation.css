@@ -1,0 +1,134 @@
+.explanation_content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 10px 20px 0 20px;
+}
+
+.explanation_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.explanation_block.reverse {
+    flex-direction: row-reverse; /* ⬅️ Додаємо перевертання для другого блоку */
+}
+
+.explanation_image_wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.explanation_image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.explanation_text{
+    flex: 1;
+    font-size: 18px;
+    color: aliceblue;
+    margin-left: 0px;
+    text-align: center;
+}
+.explanation_text p{
+    text-align: justify;
+    text-indent: 20px;
+}
+.explanation_text2 {
+    flex: 1;
+    font-size: 18px;
+    color: aliceblue;
+    text-align: center;
+}
+
+.explanation_text h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.explanation_text p {
+    line-height: 1.5;
+}
+
+/* 🔥 Адаптивність */
+@media (max-width: 768px) {
+    .explanation_block {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .explanation_block.reverse {
+        flex-direction: column; /* На мобільних теж у колонку */
+    }
+
+    .explanation_image_wrapper, 
+    .explanation_text, 
+    .explanation_text2 {
+        width: 100%;
+    }
+
+    .explanation_text, .explanation_text2 {
+        font-size: 16px;
+        padding: 0;
+    }
+
+    .explanation_text h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .explanation_text, .explanation_text2 {
+        font-size: 14px;
+    }
+
+    .explanation_text h2 {
+        font-size: 18px;
+    }
+}
+.hr{
+    height: 5px;
+    background-color: rgb(252, 215, 221);
+    border-radius: 5px;
+}
+
+.button_wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .red-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ff2e2e;
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(255, 46, 46, 0.4);
+  }
+  
+  .red-button:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+  }
+
+  .rivne{
+    display: flex;
+    margin: 0 auto;
+    font-size: 80px;
+    color: rgb(248, 248, 248);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+  

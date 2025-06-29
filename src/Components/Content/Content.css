@@ -1,0 +1,97 @@
+/* Для контейнера карток */
+.card-container {
+    display: flex;
+    justify-content: center; /* Центруємо по горизонталі */
+    align-items: center; /* Центруємо по вертикалі */
+    gap: 80px;
+    flex-wrap: wrap;
+    padding-top: 25px;
+    width: 100%; /* Висота екрану мінус 150px для відступу */
+  }
+  
+  /* Для кожної картки */
+  .card {
+    max-width: 300px;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 5px 2px  rgba(0, 0, 0, 0.05);
+    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.6); /* прозорий білий фон */
+  }
+  
+  .card a {
+    text-decoration: none;
+  }
+  
+  .content {
+    padding: 1.1rem;
+  }
+  
+  .image {
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+    background-size: cover;  /* Забезпечує, щоб картинка заповнювала блок без деформації */
+    background-position: center; /* Центрує картинку в межах контейнера */
+    border-radius: 5px;
+  }
+  
+  .title {
+    color: #111827;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+  
+  .desc {
+    margin-top: 0.5rem;
+    color: #6B7280;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: justify;
+    text-indent: 20px;
+  }
+  
+  .action {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: rgb(243, 102, 132);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .action span {
+    transition: .3s ease;
+  }
+  
+  .action:hover span {
+    transform: translateX(4px);
+  }
+  
+.container-tite{
+  color: #fff;
+  text-align: center;
+  margin-top: 50px;
+  padding-bottom: 30px;
+  font-weight: 900;
+  font-size: 30px;
+  width: 100%;
+
+}
+
+/* Стилі для індикатора завантаження */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+}

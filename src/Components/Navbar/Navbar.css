@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+/* Загальні стилі для header */
+.header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: white;
+}
+
+/* Стиль для логотипа */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    color: pink;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 15px;
+}
+
+/* Стилі для навігаційного меню */
+.navbar {
+    display: flex;
+    align-items: center;
+}
+* {
+    font-family: 'Nunito', sans-serif;
+}
+/* Стилі для посилань в навігаційному меню */
+.navbar a {
+    position: relative;
+    font-size: 18px;
+    color: pink;
+    font-weight: 700;
+    margin-left: 20px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: pink;
+    transition: .3s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+/* Стилі для бургер-меню */
+.burger-menu {
+    display: none; /* Приховуємо бургер-меню за замовчуванням */
+    cursor: pointer;
+    z-index: 101;
+}
+
+.line {
+    width: 30px;
+    height: 4px;
+    background-color: pink;
+    margin: 6px 0;
+    transition: 0.3s;
+}
+
+/* Медіа-запити для адаптації */
+@media (max-width: 1200px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        margin-left: 15px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    /* Приховуємо меню на мобільних */
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 88px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Відображаємо меню, коли додано клас active */
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        margin: 15px 0;
+        font-size: 20px;
+    }
+
+    .burger-menu {
+        display: block; /* Показуємо бургер-меню при малих екранах */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 24px;
+    }
+
+    .navbar a {
+        font-size: 18px;
+        margin-left: 10px;
+    }
+
+    .burger-menu .line {
+        width: 25px;
+    }
+}
