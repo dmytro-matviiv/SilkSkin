@@ -1,10 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
-# https://silk-skin.vercel.app/robots.txt
+# https://silk-skin-sable.vercel.app/robots.txt
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://silk-skin.vercel.app/sitemap.xml
+Sitemap: https://silk-skin-sable.vercel.app/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
