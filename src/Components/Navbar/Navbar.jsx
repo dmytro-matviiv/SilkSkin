@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png';
-
 
 const Navbar = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -25,11 +23,20 @@ const Navbar = () => {
 
   return (
     <header className="header">
-      {/* Логотип */}
-      <Link to="/clearSkin" className="logo" onClick={() => setIsMenuActive(false)}>
-        <img src={logo} alt="Logo" className="logo-img" />
-        Silk & Skin
-      </Link>
+      <div className="header-left">
+        <Link to="/clearSkin" className="logo" onClick={() => setIsMenuActive(false)}>
+          <img src="/logo.png" alt="Silk & Skin - логотип косметологічного салону у Рівному" className="logo-img" />
+          <span className="logo-text">Silk & Skin</span>
+        </Link>
+        <a href="tel:0988055084" className="navbar-phone">
+          <span className="phone-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z" stroke="#F36684" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </span>
+          <span className="phone-number">098 805 50 84</span>
+        </a>
+      </div>
 
       {/* Бургер-меню */}
       <div className={`burger-menu ${isMenuActive ? 'active' : ''}`} onClick={toggleMenu}>

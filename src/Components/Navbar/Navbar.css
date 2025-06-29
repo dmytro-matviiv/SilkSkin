@@ -12,7 +12,13 @@
     background: white;
 }
 
-/* Стиль для логотипа */
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
 .logo {
     display: flex;
     align-items: center;
@@ -20,6 +26,16 @@
     color: pink;
     font-weight: 700;
     text-decoration: none;
+    margin-bottom: 0;
+}
+
+.logo-text {
+    font-size: 32px;
+    color: pink;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10px;
+    letter-spacing: 1px;
 }
 
 .logo-img {
@@ -84,6 +100,9 @@
     .header {
         padding: 20px 5%;
     }
+    .logo-text {
+        font-size: 28px;
+    }
 
     .navbar {
         display: flex;
@@ -103,7 +122,17 @@
 
 @media (max-width: 768px) {
     .header {
-        padding: 20px 5%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px 2%;
+    }
+    .header-left {
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .logo-text {
+        font-size: 22px;
+        margin-left: 8px;
     }
 
     /* Приховуємо меню на мобільних */
@@ -131,19 +160,60 @@
     .burger-menu {
         display: block; /* Показуємо бургер-меню при малих екранах */
     }
+
+    .navbar-phone {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+    .phone-icon {
+        width: 28px;
+        height: 28px;
+    }
 }
 
 @media (max-width: 480px) {
-    .logo {
-        font-size: 24px;
-    }
-
-    .navbar a {
+    .logo-text {
         font-size: 18px;
-        margin-left: 10px;
+        margin-left: 6px;
+    }
+    .logo-img {
+        width: 36px;
     }
 
     .burger-menu .line {
         width: 25px;
     }
+}
+
+.navbar-phone {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: #F36684;
+    font-weight: 600;
+    font-size: 20px;
+    transition: color 0.2s;
+    gap: 8px;
+}
+
+.navbar-phone:hover {
+    color: #d13c5c;
+}
+
+.phone-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fde4ea;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin-right: 6px;
+}
+
+.phone-number {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
 }

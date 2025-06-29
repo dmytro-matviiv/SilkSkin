@@ -493,7 +493,7 @@ const handleSaveChanges = async () => {
                     {item.image && (
                       <img
                         src={getImage(item.image)}
-                        alt="preview"
+                        alt={`Попередній перегляд зображення для послуги: ${item.title}`}
                         className="image-preview"
                         style={{ maxWidth: 80, maxHeight: 80, marginLeft: 8 }}
                         onError={e => e.target.style.display = 'none'}
@@ -552,7 +552,7 @@ const handleSaveChanges = async () => {
               {item.image && (
                 <img
                   src={item.image}
-                  alt="preview"
+                  alt={`Попередній перегляд зображення контенту: ${item.title}`}
                   className="image-preview"
                   onError={(e) => {
                     console.error("Помилка завантаження зображення контенту:", item.image);

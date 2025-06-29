@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="../src/assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/logo.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -24,7 +25,139 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Мікронідлінг та оновлення шкіри у Рівному | Silk & Skin - Професійні косметологічні послуги</title>
+    <meta name="description" content="Мікронідлінг, оновлення шкіри, видалення розтяжок та шрамів у м.Рівне. Професійні косметологічні послуги від Silk & Skin. Записуйтесь на процедуру! Безкоштовна консультація." />
+    <meta name="keywords" content="мікронідлінг, оновлення шкіри, косметологія, Рівне, розтяжки, шрами, ламінування брів, мікронідлінг Рівне, косметологія Рівне, оновлення шкіри Рівне, Silk & Skin" />
+    <meta name="author" content="Silk & Skin" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="uk" />
+    <meta name="geo.region" content="UA-56" />
+    <meta name="geo.placename" content="Рівне" />
+    <meta name="geo.position" content="50.6199;26.2516" />
+    <meta name="ICBM" content="50.6199, 26.2516" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://silk-skin.vercel.app/" />
+    <meta property="og:title" content="Мікронідлінг та оновлення шкіри у Рівному | Silk & Skin" />
+    <meta property="og:description" content="Професійні косметологічні послуги у м.Рівне. Мікронідлінг, видалення розтяжок та шрамів. Записуйтесь на процедуру!" />
+    <meta property="og:image" content="%PUBLIC_URL%/logo.png" />
+    <meta property="og:image:alt" content="Silk & Skin - логотип косметологічного салону у Рівному" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:locale" content="uk_UA" />
+    <meta property="og:site_name" content="Silk & Skin" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://silk-skin.vercel.app/" />
+    <meta property="twitter:title" content="Мікронідлінг та оновлення шкіри у Рівному | Silk & Skin" />
+    <meta property="twitter:description" content="Професійні косметологічні послуги у м.Рівне. Мікронідлінг, видалення розтяжок та шрамів." />
+    <meta property="twitter:image" content="%PUBLIC_URL%/logo.png" />
+    <meta property="twitter:image:alt" content="Silk & Skin - логотип косметологічного салону у Рівному" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://silk-skin.vercel.app/" />
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Silk & Skin",
+      "description": "Професійні косметологічні послуги: мікронідлінг, видалення розтяжок та шрамів у м.Рівне",
+      "url": "https://silk-skin.vercel.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://silk-skin.vercel.app/logo.png",
+        "alt": "Silk & Skin - логотип косметологічного салону у Рівному"
+      },
+      "image": [
+        {
+          "@type": "ImageObject",
+          "url": "https://silk-skin.vercel.app/logo.png",
+          "alt": "Silk & Skin - логотип косметологічного салону у Рівному"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://silk-skin.vercel.app/static/media/Explanation1.jpg",
+          "alt": "Мікронідлінг процедура - професійне обладнання для оновлення шкіри у Рівному"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://silk-skin.vercel.app/static/media/Explanation2.png",
+          "alt": "Ламінування брів та вій - професійна косметологічна процедура у Рівному"
+        }
+      ],
+      "telephone": "+380XXXXXXXXX",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Рівне",
+        "addressRegion": "Рівненська область",
+        "addressCountry": "UA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.6199,
+        "longitude": 26.2516
+      },
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "priceRange": "$$",
+      "currenciesAccepted": "UAH",
+      "paymentAccepted": "Cash, Credit Card",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Косметологічні послуги",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Мікронідлінг",
+              "description": "Процедура оновлення шкіри за допомогою мікронідлінгу",
+              "image": {
+                "@type": "ImageObject",
+                "url": "https://silk-skin.vercel.app/static/media/Explanation1.jpg",
+                "alt": "Мікронідлінг процедура - професійне обладнання для оновлення шкіри у Рівному"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Видалення розтяжок",
+              "description": "Професійне видалення розтяжок на різних ділянках тіла"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Видалення шрамів",
+              "description": "Видалення шрамів та рубців різного походження"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ламінування брів та вій",
+              "description": "Професійне ламінування брів та вій для яскравого вигляду",
+              "image": {
+                "@type": "ImageObject",
+                "url": "https://silk-skin.vercel.app/static/media/Explanation2.png",
+                "alt": "Ламінування брів та вій - професійна косметологічна процедура у Рівному"
+              }
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/royalskin_rivne/"
+      ]
+    }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

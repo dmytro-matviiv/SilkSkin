@@ -20,7 +20,7 @@ const Explanation = () => {
             Тому він має кілька назв, одна з яких – фракційна мезотерапія. Його умовно поділяють на дві великі категорії:</p>
         </div>
         <div className="explanation_image_wrapper">
-          <img src={exp1} alt="Пояснення1" className="explanation_image" />
+          <img src={exp1} alt="Мікронідлінг процедура - професійне обладнання для оновлення шкіри у Рівному" className="explanation_image" />
         </div>
       </div>
 
@@ -36,7 +36,7 @@ const Explanation = () => {
             ламінування брів і вій, що для цього потрібно, як доглядати брови і вії після ламінування та багато інших нюансів.</p>
         </div>
         <div className="explanation_image_wrapper">
-         <img src={exp2} alt="Пояснення1" className="explanation_image" />
+         <img src={exp2} alt="Ламінування брів та вій - професійна косметологічна процедура у Рівному" className="explanation_image" />
         </div>
       </div>
 
