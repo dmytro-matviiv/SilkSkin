@@ -95,3 +95,67 @@
   color: #fff;
   font-weight: 600;
 }
+
+.faq-block {
+  background: #fff6fa;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(183, 123, 123, 0.10);
+  padding: 32px 24px;
+  margin: 32px auto 0 auto;
+  max-width: 700px;
+  width: 100%;
+}
+.faq-block h2 {
+  text-align: center;
+  color: #b77b7b;
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+.faq-block details {
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background: #ffe3ed;
+  box-shadow: 0 2px 8px 0 rgba(183, 123, 123, 0.07);
+  transition: box-shadow 0.3s;
+  overflow: hidden;
+}
+.faq-block details[open] {
+  box-shadow: 0 4px 16px 0 rgba(183, 123, 123, 0.15);
+}
+.faq-block summary {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #b77b7b;
+  padding: 16px 20px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: none;
+  transition: background 0.2s;
+}
+.faq-block details[open] summary {
+  background: #ffd6e6;
+}
+.faq-block details div {
+  padding: 0 20px 16px 20px;
+  color: #333;
+  font-size: 1rem;
+  animation: fadeIn 0.4s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+  .faq-block {
+    padding: 18px 6px;
+  }
+  .faq-block summary {
+    font-size: 1rem;
+    padding: 12px 10px;
+  }
+  .faq-block details div {
+    font-size: 0.95rem;
+    padding: 0 10px 12px 10px;
+  }
+}
