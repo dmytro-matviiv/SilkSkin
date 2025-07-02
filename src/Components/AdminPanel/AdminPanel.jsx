@@ -106,6 +106,12 @@ const AdminPanel = () => {
     fetchData();
   }, []);
 
+  React.useEffect(() => {
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      navigate('/login', { replace: true });
+    }
+  }, [navigate]);
+
   // 🔥 Допоміжна функція для компресії зображень
   const compressImage = (base64String, maxSize = 500000) => { // 500KB limit
     return new Promise((resolve) => {
@@ -168,7 +174,7 @@ const AdminPanel = () => {
         image: item.image ? String(item.image).trim() : ''
       }));
 
-      const categoryDocRef = doc(db, "services", category);
+    const categoryDocRef = doc(db, "services", category);
       await updateDoc(categoryDocRef, { items: sanitizedItems });
     } catch (error) {
       console.error("Помилка оновлення категорії:", error);
@@ -189,18 +195,18 @@ const AdminPanel = () => {
         actionText: String(item.actionText || '').trim()
       }));
 
-      // Видаляємо всі документи в колекції content
-      const contentCollection = collection(db, "content");
-      const contentSnapshot = await getDocs(contentCollection);
-      const deletePromises = contentSnapshot.docs.map(doc => deleteDoc(doc.ref));
-      await Promise.all(deletePromises);
+    // Видаляємо всі документи в колекції content
+    const contentCollection = collection(db, "content");
+    const contentSnapshot = await getDocs(contentCollection);
+    const deletePromises = contentSnapshot.docs.map(doc => deleteDoc(doc.ref));
+    await Promise.all(deletePromises);
 
-      // Додаємо нові документи
+    // Додаємо нові документи
       const addPromises = sanitizedContent.map(item => {
-        const docRef = doc(contentCollection);
-        return setDoc(docRef, item);
-      });
-      await Promise.all(addPromises);
+      const docRef = doc(contentCollection);
+      return setDoc(docRef, item);
+    });
+    await Promise.all(addPromises);
     } catch (error) {
       console.error("Помилка оновлення контенту:", error);
       throw error;
@@ -217,11 +223,11 @@ const AdminPanel = () => {
   // 🔥 Оновлення полів контенту
   const handleContentChange = async (index, field, value) => {
     try {
-      const updatedContent = [...contentData];
-      updatedContent[index][field] = value;
-      
-      setContentData(updatedContent);
-      await updateFirestoreContent(updatedContent);
+    const updatedContent = [...contentData];
+    updatedContent[index][field] = value;
+    
+    setContentData(updatedContent);
+    await updateFirestoreContent(updatedContent);
     } catch (error) {
       console.error("Помилка оновлення контенту:", error);
       alert("Помилка збереження змін. Спробуйте ще раз.");
@@ -248,15 +254,15 @@ const handleSaveChanges = async () => {
       alert("Будь ласка, виберіть зображення");
       return;
     }
-    const reader = new FileReader();
-    reader.onload = async (event) => {
-      const base64Image = event.target.result;
+      const reader = new FileReader();
+      reader.onload = async (event) => {
+        const base64Image = event.target.result;
       const compressedImage = await compressImage(base64Image);
-      const updatedItems = [...data[selectedCategory]];
+        const updatedItems = [...data[selectedCategory]];
       updatedItems[index].image = compressedImage;
-      setData({ ...data, [selectedCategory]: updatedItems });
-    };
-    reader.readAsDataURL(file);
+        setData({ ...data, [selectedCategory]: updatedItems });
+      };
+      reader.readAsDataURL(file);
   };
 
   // 🔥 Завантаження та оновлення зображення для контенту
@@ -286,19 +292,19 @@ const handleSaveChanges = async () => {
       const reader = new FileReader();
       reader.onload = async (event) => {
         try {
-          const base64Image = event.target.result;
+        const base64Image = event.target.result;
           
           // Компресуємо зображення перед збереженням
           const compressedImage = await compressImage(base64Image);
-          
-          const updatedContent = [...contentData];
+        
+        const updatedContent = [...contentData];
           updatedContent[index].image = compressedImage;
-          
-          setContentData(updatedContent);
-          await updateFirestoreContent(updatedContent);
-          
+        
+        setContentData(updatedContent);
+        await updateFirestoreContent(updatedContent);
+        
           console.log("Зображення контенту збережено як base64 (стиснуте)");
-          alert("Зображення успішно завантажено!");
+        alert("Зображення успішно завантажено!");
         } catch (error) {
           console.error("Помилка обробки зображення контенту:", error);
           alert("Помилка обробки зображення: " + error.message);
@@ -316,11 +322,11 @@ const handleSaveChanges = async () => {
   // 🔥 Додавання нової послуги
   const handleAddService = async () => {
     try {
-      const newService = { id: Date.now(), title: "Нова послуга", price: "0 грн", image: "" };
-      const updatedItems = [...data[selectedCategory], newService];
+    const newService = { id: Date.now(), title: "Нова послуга", price: "0 грн", image: "" };
+    const updatedItems = [...data[selectedCategory], newService];
 
-      setData({ ...data, [selectedCategory]: updatedItems });
-      await updateFirestoreCategory(selectedCategory, updatedItems);
+    setData({ ...data, [selectedCategory]: updatedItems });
+    await updateFirestoreCategory(selectedCategory, updatedItems);
     } catch (error) {
       console.error("Помилка додавання послуги:", error);
       alert("Помилка додавання послуги. Спробуйте ще раз.");
@@ -330,18 +336,18 @@ const handleSaveChanges = async () => {
   // 🔥 Додавання нового контенту
   const handleAddContent = async () => {
     try {
-      const newContent = { 
-        id: Date.now(), 
-        image: '', 
-        title: 'Новий заголовок', 
-        desc: 'Новий опис...', 
-        actionLink: 'https://example.com', 
-        actionText: 'Дії' 
-      };
-      const updatedContent = [...contentData, newContent];
+    const newContent = { 
+      id: Date.now(), 
+      image: '', 
+      title: 'Новий заголовок', 
+      desc: 'Новий опис...', 
+      actionLink: 'https://example.com', 
+      actionText: 'Дії' 
+    };
+    const updatedContent = [...contentData, newContent];
 
-      setContentData(updatedContent);
-      await updateFirestoreContent(updatedContent);
+    setContentData(updatedContent);
+    await updateFirestoreContent(updatedContent);
     } catch (error) {
       console.error("Помилка додавання контенту:", error);
       alert("Помилка додавання контенту. Спробуйте ще раз.");
@@ -351,11 +357,11 @@ const handleSaveChanges = async () => {
   // 🔥 Видалення послуги
   const handleDelete = async (index) => {
     try {
-      const updatedItems = [...data[selectedCategory]];
-      updatedItems.splice(index, 1);
+    const updatedItems = [...data[selectedCategory]];
+    updatedItems.splice(index, 1);
 
-      setData({ ...data, [selectedCategory]: updatedItems });
-      await updateFirestoreCategory(selectedCategory, updatedItems);
+    setData({ ...data, [selectedCategory]: updatedItems });
+    await updateFirestoreCategory(selectedCategory, updatedItems);
     } catch (error) {
       console.error("Помилка видалення послуги:", error);
       alert("Помилка видалення послуги. Спробуйте ще раз.");
@@ -365,11 +371,11 @@ const handleSaveChanges = async () => {
   // 🔥 Видалення контенту
   const handleDeleteContent = async (index) => {
     try {
-      const updatedContent = [...contentData];
-      updatedContent.splice(index, 1);
+    const updatedContent = [...contentData];
+    updatedContent.splice(index, 1);
 
-      setContentData(updatedContent);
-      await updateFirestoreContent(updatedContent);
+    setContentData(updatedContent);
+    await updateFirestoreContent(updatedContent);
     } catch (error) {
       console.error("Помилка видалення контенту:", error);
       alert("Помилка видалення контенту. Спробуйте ще раз.");

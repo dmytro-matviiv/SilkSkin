@@ -1,0 +1,107 @@
+.contactus-modal-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(40, 40, 60, 0.35);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s;
+}
+.contactus-modal {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px rgba(243,102,132,0.13), 0 2px 8px rgba(0,0,0,0.09);
+  padding: 2.2rem 2.5rem 2rem 2.5rem;
+  max-width: 420px;
+  width: 95vw;
+  position: relative;
+  animation: fadeInUp 0.4s;
+}
+.contactus-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  background: #f7e7ee;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  color: #F36684;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(243,102,132,0.07);
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  z-index: 10;
+}
+.contactus-close:hover {
+  background: #F36684;
+  color: #fff;
+}
+.contactus-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
+  margin-top: 1.2em;
+}
+.contactus-row {
+  display: flex;
+  gap: 0.7em;
+}
+.contactus-form input,
+.contactus-form select {
+  padding: 0.7em 1em;
+  border-radius: 7px;
+  border: 1.5px solid #e3e3e3;
+  font-size: 1.08em;
+  outline: none;
+  transition: border 0.2s;
+  width: 100%;
+}
+.contactus-form input:focus,
+.contactus-form select:focus {
+  border: 1.5px solid #F36684;
+}
+.contactus-btn {
+  background: #F36684;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8em 2.2em;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-top: 0.5em;
+  transition: background 0.2s, transform 0.18s;
+  box-shadow: 0 2px 8px rgba(243,102,132,0.10);
+}
+.contactus-btn:hover {
+  background: #d13a5c;
+  transform: scale(1.04);
+}
+.contactus-error {
+  color: #d13a5c;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .contactus-modal {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+  .contactus-row {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+} 

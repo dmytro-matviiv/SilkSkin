@@ -1,46 +1,56 @@
 import './Explanation.css';
-import React from 'react';
+import React, { useState } from 'react';
 import exp1 from '../../assets/Explanation1.jpg';
 import exp2 from '../../assets/Explanation2.png';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const Explanation = () => {
+  const [showContact, setShowContact] = useState(false);
+
+  if (showContact) {
+    const ContactUS = React.lazy(() => import('../ContactUS/ContactUS'));
+    return (
+      <React.Suspense fallback={<div>Завантаження форми...</div>}>
+        <ContactUS onClose={() => setShowContact(false)} />
+      </React.Suspense>
+    );
+  }
+
   return (
-    <div  className="explanation_content">
-      {/* Блок 1: Картинка зліва, текст справа */}
-      <a className='rivne'> RIVNE</a>
-      <div className="explanation_block">
-
-        <div className="explanation_text">
-          <div className="button_wrapper">
-            <a href="https://docs.google.com/forms/d/1Q5aJkw_XuXTIIEUhMmt6b_KZ6iEDVq6GTg7dMkujlzc/edit" className="red-button">Записатися</a>
+    <div className="explanation_content promo-bg">
+      <div className="promo-block">
+        <div className="promo-img-wrap">
+          <img src={exp1} alt="Мікронідлінг у Рівному" className="promo-img" />
+        </div>
+        <div className="promo-text">
+          <h2 className="promo-title">Акція! Знижка -25% на першу процедуру</h2>
+          <p className="promo-desc">
+            Тільки зараз діє унікальна пропозиція: <b>отримайте -25% знижки на перший візит</b> до косметолога у Рівному! 
+            Скористайтеся шансом спробувати мікронідлінг, видалення розтяжок, шрамів, чистку обличчя чи ламінування брів/вій за спеціальною ціною.
+          </p>
+          <ul className="promo-list">
+            <li>Мікронідлінг</li>
+            <li>Видалення розтяжок</li>
+            <li>Видалення шрамів</li>
+            <li>Чистка обличчя</li>
+            <li>Ламінування брів та вій</li>
+          </ul>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '18px', marginTop: '1.2em' }}>
+            <button className="promo-btn" onClick={() => setShowContact(true)}>Записатися</button>
+            <a
+              href="https://www.instagram.com/royalskin_rivne/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="promo-insta-link"
+              style={{ display: 'flex', alignItems: 'center', color: '#F36684', fontWeight: 600, textDecoration: 'none', fontSize: '1.08em' }}
+            >
+              <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '1.6em', marginRight: '7px' }} />
+              Ми є в Instagram
+            </a>
           </div>
-          <h2>Мікронідлінг</h2>
-          <p>Мікронідлінг – це точковий (фракційний) вплив на шкіру мікроскопічних голок з лазерним заточенням.
-            Тому він має кілька назв, одна з яких – фракційна мезотерапія. Його умовно поділяють на дві великі категорії:</p>
-        </div>
-        <div className="explanation_image_wrapper">
-          <img src={exp1} alt="Мікронідлінг процедура - професійне обладнання для оновлення шкіри у Рівному" className="explanation_image" />
         </div>
       </div>
-
-      <hr className='hr' />
-
-      {/* Блок 2: Текст зліва, картинка справа */}
-      <div className="explanation_block reverse">
-        <div className="explanation_text">
-          <h2>Ламінування вій та брів</h2>
-          <p>Яскравий представник процедур, які забезпечують не лише ефект миттєвого перетворення, а й довгострокові результати.
-            Ця техніка стала популярною завдяки здатності зробити обличчя яскравішим та виразнішим. Але що таке процедура ламінування,
-            які плюси та мінуси вона дає, скільки тримається ефект? У цьому матеріалі ми розглянемо як роблять
-            ламінування брів і вій, що для цього потрібно, як доглядати брови і вії після ламінування та багато інших нюансів.</p>
-        </div>
-        <div className="explanation_image_wrapper">
-         <img src={exp2} alt="Ламінування брів та вій - професійна косметологічна процедура у Рівному" className="explanation_image" />
-        </div>
-      </div>
-
-      <hr className='hr' />
     </div>
   );
 };

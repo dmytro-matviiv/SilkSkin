@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <header className="header">
       <div className="header-left">
-        <Link to="/clearSkin" className="logo" onClick={() => setIsMenuActive(false)}>
+        <Link to="/" className="logo" onClick={() => setIsMenuActive(false)}>
           <img src="/logo.png" alt="Silk & Skin - логотип косметологічного салону у Рівному" className="logo-img" />
           <span className="logo-text">Silk & Skin</span>
         </Link>
@@ -47,11 +47,9 @@ const Navbar = () => {
 
       {/* Навігаційне меню */}
       <nav className={`navbar ${isMenuActive ? 'active' : ''}`}>
-        <a href="#whywe" onClick={() => setIsMenuActive(false)}>ЧОМУ САМЕ МИ</a>
-        <a href="#roztyazhki" onClick={() => setIsMenuActive(false)}>РОЗТЯЖКИ</a>
-        <a href="#shramirubci" onClick={() => setIsMenuActive(false)}>ШРАМИ/РУБЦІ</a>
-        <a href="#holovaoblychchya" onClick={() => setIsMenuActive(false)}>ГОЛОВА/ОБЛИЧЧЯ</a>
-        <a href="#contacts" onClick={() => setIsMenuActive(false)}>КОНТАКТИ</a>
+        <Link to={{ pathname: '/', search: '?scrollTo=roztyazhki' }} onClick={() => setIsMenuActive(false)}>Ціни</Link>
+        <Link to={{ pathname: '/', search: '?scrollTo=contacts' }} onClick={() => setIsMenuActive(false)}>КОНТАКТИ</Link>
+        <Link to="/blog" onClick={() => setIsMenuActive(false)}>Блог</Link>
         <Link to="/login" onClick={() => setIsMenuActive(false)}>Вхід</Link>
       </nav>
     </header>

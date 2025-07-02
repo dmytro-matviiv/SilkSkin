@@ -1,3 +1,99 @@
+/* Акційний промо-блок */
+.promo-bg {
+  background: linear-gradient(120deg, #f7e7ee 0%, #e3f0ff 100%);
+  padding: 0 0 40px 0;
+}
+.promo-block {
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(243,102,132,0.10), 0 2px 8px rgba(0,0,0,0.07);
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 2.5rem 2rem 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.promo-img-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.promo-img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(243,102,132,0.10);
+}
+.promo-text {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 10px;
+}
+.promo-title {
+  color: #F36684;
+  font-size: 2.1rem;
+  font-weight: 900;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+.promo-desc {
+  color: #333;
+  font-size: 1.15rem;
+  margin-bottom: 1.1em;
+  text-align: left;
+}
+.promo-list {
+  margin: 0 0 1.5em 1.2em;
+  color: #444;
+  font-size: 1.08em;
+  padding-left: 1.2em;
+}
+.promo-list li {
+  margin-bottom: 0.3em;
+}
+.promo-btn {
+  background: #F36684;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8em 2.2em;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-top: 1.2em;
+  transition: background 0.2s, transform 0.18s;
+  box-shadow: 0 2px 8px rgba(243,102,132,0.10);
+}
+.promo-btn:hover {
+  background: #d13a5c;
+  transform: scale(1.04);
+}
+
+@media (max-width: 900px) {
+  .promo-block {
+    flex-direction: column;
+    gap: 20px;
+    padding: 1.5rem 0.5rem 2rem 0.5rem;
+  }
+  .promo-img {
+    max-width: 95vw;
+  }
+  .promo-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* Видаляю старі стилі explanation_block, .rivne, .hr, .explanation_text тощо */
+.explanation_block, .explanation_block.reverse, .rivne, .hr, .explanation_text, .explanation_text2, .explanation_image_wrapper, .explanation_image {
+  display: none !important;
+}
+
 .explanation_content {
     display: flex;
     flex-direction: column;

@@ -94,7 +94,10 @@ const PriceList = () => {
         .filter(category => data[category])
         .map((category) => (
           <div key={category}>
-            <h2 className='container-tite' id={category.replace(/[\/ _]/g, '').toLowerCase()}>
+            <h2
+              className='container-tite'
+              id={category === 'РОЗТЯЖКИ' ? 'roztyazhki' : category.replace(/[\/ _]/g, '').toLowerCase()}
+            >
               {category}
             </h2>
 
