@@ -1,5 +1,5 @@
 import './Content.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { db } from '../../firebase.js';
 import { collection, getDocs, onSnapshot } from "firebase/firestore";
 
@@ -49,6 +49,8 @@ const getImage = (fileName) => {
 const Content = () => {
   const [cards, setCards] = useState(defaultCards);
   const [loading, setLoading] = useState(true);
+  const [showHeader, setShowHeader] = useState(true);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     // Підписуємося на зміни в Firestore для контенту
@@ -80,6 +82,16 @@ const Content = () => {
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!headerRef.current) return;
+      const rect = headerRef.current.getBoundingClientRect();
+      setShowHeader(rect.bottom > 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   if (loading) {
     return <div className="loading">Завантаження контенту...</div>;
   }
@@ -91,8 +103,10 @@ const Content = () => {
         <meta name="description" content="Мікронідлінг, видалення шрамів, розтяжок, сучасна косметологія у Рівному. Професійний догляд за шкірою, акції, консультації." />
         <meta name="keywords" content="мікронідлінг Рівне, видалення шрамів Рівне, позбутися шраму Рівне, косметологія Рівне, догляд за шкірою, Silk & Skin" />
       </Helmet>
-      <h1>Мікронідлінг, видалення шрамів та сучасна косметологія у Рівному</h1>
-      <p>Вітаємо у Silk & Skin! Ми спеціалізуємося на <a href="/blog" style={{color:'#b77b7b',textDecoration:'underline'}}>мікронідлінгу</a>, <a href="/blog" style={{color:'#b77b7b',textDecoration:'underline'}}>видаленні шрамів</a>, розтяжок та сучасних косметологічних процедурах у місті Рівне. <a href="#explanation" style={{color:'#b77b7b',textDecoration:'underline'}}>Скористайтеся акцією -25% на першу процедуру!</a></p>
+      <div className={`main-header${showHeader ? '' : ' sticky-fade'}`} ref={headerRef}>
+        <h1>Мікронідлінг, видалення шрамів та сучасна косметологія у Рівному</h1>
+        <p>Вітаємо у Silk & Skin! Ми спеціалізуємося на <a href="/blog" style={{color:'#b77b7b',textDecoration:'underline'}}>мікронідлінгу</a>, <a href="/blog" style={{color:'#b77b7b',textDecoration:'underline'}}>видаленні шрамів</a>, розтяжок та сучасних косметологічних процедурах у місті Рівне. <a href="#explanation" style={{color:'#b77b7b',textDecoration:'underline'}}>Скористайтеся акцією -25% на першу процедуру!</a></p>
+      </div>
       <div id='whywe'>
         <h2 className="container-tite">ЧОМУ САМЕ МИ?</h2>
         <div className="card-container">
@@ -117,7 +131,7 @@ const Content = () => {
         </div>
       </div>
       <section style={{marginTop:'2rem'}}>
-        <h2>Поширені питання про мікронідлінг та видалення шрамів у Рівному</h2>
+        <h2 className="faq-title">Поширені питання про мікронідлінг та видалення шрамів у Рівному</h2>
         <div className="faq-block">
           <details>
             <summary>Чи боляче проходить мікронідлінг?</summary>
