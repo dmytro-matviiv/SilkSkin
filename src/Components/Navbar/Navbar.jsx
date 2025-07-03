@@ -38,15 +38,18 @@ const Navbar = () => {
         </a>
       </div>
 
+      {/* Overlay для бургер-меню */}
+      <div className={`navbar-overlay${isMenuActive ? ' active' : ''}`} onClick={() => setIsMenuActive(false)}></div>
+
       {/* Бургер-меню */}
-      <div className={`burger-menu ${isMenuActive ? 'active' : ''}`} onClick={toggleMenu}>
+      <div className={`burger-menu${isMenuActive ? ' active' : ''}`} onClick={toggleMenu}>
         <div className="line"></div>
         <div className="line"></div>
         <div className="line"></div>
       </div>
 
       {/* Навігаційне меню */}
-      <nav className={`navbar ${isMenuActive ? 'active' : ''}`}>
+      <nav className={`navbar${isMenuActive ? ' active' : ''}`}>
         <Link to={{ pathname: '/', search: '?scrollTo=roztyazhki' }} onClick={() => setIsMenuActive(false)}>Ціни</Link>
         <Link to={{ pathname: '/', search: '?scrollTo=contacts' }} onClick={() => setIsMenuActive(false)}>КОНТАКТИ</Link>
         <Link to="/blog" onClick={() => setIsMenuActive(false)}>Блог</Link>
