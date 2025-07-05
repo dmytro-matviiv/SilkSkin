@@ -50,6 +50,13 @@ const ContactUS = ({ onClose }) => {
         'uOobu2TjagBW68Gg3' // замініть на свій public key
       );
       setSent(true);
+      // Google Ads Conversion Tracking
+      if (window.gtag) {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17284202271/zY_LCLrUhuoaEJ_-37FA',
+          'transaction_id': ''
+        });
+      }
     } catch (err) {
       setError('Сталася помилка. Спробуйте ще раз.');
     } finally {
